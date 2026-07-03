@@ -37,9 +37,9 @@ export default function WhyChooseUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mt-4 mb-6"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mt-4 mb-6 break-words"
           >
-            Pourquoi Choisir Kidebouchetou ?
+            Pourquoi Choisir kidebouchetou.com ?
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -166,7 +166,7 @@ export default function WhyChooseUs() {
                     Plombier général
                   </th>
                   <th className="px-6 py-4 text-left text-green-600 font-bold">
-                    Kidebouchetou
+                    kidebouchetou.com
                   </th>
                 </tr>
               </thead>
@@ -221,7 +221,7 @@ export default function WhyChooseUs() {
               <Award className="w-6 h-6 text-white" />
             </div>
             <h3 className="text-2xl font-bold text-primary">
-              La Différence Kidebouchetou
+              La Différence kidebouchetou.com
             </h3>
           </div>
           <div className="grid md:grid-cols-3 gap-6 text-center">

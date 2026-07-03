@@ -107,7 +107,7 @@ export default function Consequences() {
               </div>
             </div>
             {/* Floating cards */}
-            <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-lg">
+            <div className="absolute -bottom-6 right-0 md:-right-6 bg-white p-4 rounded-xl shadow-lg">
               <div className="flex items-center gap-2 text-red-600">
                 <ShieldAlert className="w-5 h-5" />
                 <span className="font-bold">Risque sanitaire</span>

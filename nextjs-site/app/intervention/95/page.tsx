@@ -174,7 +174,7 @@ export default function ValDOisePage() {
 
             {/* Trust */}
             <div className="bg-primary rounded-2xl p-6 text-white">
-              <h3 className="font-bold mb-2">Kidebouchetou</h3>
+              <h3 className="font-bold mb-2">kidebouchetou.com</h3>
               <p className="text-blue-200 text-sm">
                 Basé à Sarcelles depuis plus de 25 ans.
               </p>

@@ -25,8 +25,8 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-8 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg top-0" : "bg-transparent"
+      className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg top-0 md:top-0" : "bg-transparent top-0 md:top-8"
       }`}
       role="navigation"
       aria-label="Navigation principale"
@@ -40,7 +40,7 @@ export default function Navigation() {
             aria-label="Retour à l'accueil"
           >
             <Image
-              src="/logo.jpg"
+              src="/logo.png"
               alt="Logo Kidebouchetou"
               width={48}
               height={48}
@@ -51,7 +51,7 @@ export default function Navigation() {
                 isScrolled ? "text-primary" : "text-white"
               }`}
             >
-              Ki<span className="text-accent">debouche</span>tou
+              ki<span className="text-accent">debouche</span>tou.com
             </span>
           </a>
 

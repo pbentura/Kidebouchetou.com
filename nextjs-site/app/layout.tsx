@@ -13,8 +13,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://kidebouchetou.fr"),
   title: {
-    default: "Kidebouchetou | Expert Débouchage Canalisations Île-de-France",
-    template: "%s | Kidebouchetou",
+    default: "kidebouchetou.com | Expert Débouchage Canalisations Île-de-France",
+    template: "%s | kidebouchetou.com",
   },
   description:
     "Expert en débouchage de canalisations depuis 25 ans. Intervention rapide 24/7 à Sarcelles, Saint-Ouen et toute l'Île-de-France. Débouchage WC, évier, douche, canalisation haute pression. Devis gratuit.",
@@ -54,13 +54,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     url: "https://kidebouchetou.fr",
-    siteName: "Kidebouchetou",
-    title: "Kidebouchetou | Expert Débouchage Canalisations depuis 25 ans",
+    siteName: "kidebouchetou.com",
+    title: "kidebouchetou.com | Expert Débouchage Canalisations depuis 25 ans",
     description:
       "Service professionnel de débouchage de canalisations. Intervention rapide 24/7, devis gratuit.",
     images: [
       {
-        url: "/logo.jpg",
+        url: "/logo.png",
         width: 512,
         height: 512,
         alt: "Logo Kidebouchetou - Expert en débouchage",
@@ -69,10 +69,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kidebouchetou | Expert Débouchage Canalisations",
+    title: "kidebouchetou.com | Expert Débouchage Canalisations",
     description:
       "Service professionnel de débouchage depuis 25 ans. Intervention rapide à Sarcelles et Saint-Ouen.",
-    images: ["/logo.jpg"],
+    images: ["/logo.png"],
   },
   verification: {
     google: "your-google-verification-code",
@@ -175,7 +175,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className="scroll-smooth">
+    <html lang="fr" className="scroll-smooth overflow-x-hidden">
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -183,11 +183,11 @@ export default function RootLayout({
           }}
           type="application/ld+json"
         />
-        <link rel="icon" href="/logo.jpg" type="image/jpg" />
-        <link rel="apple-touch-icon" href="/logo.jpg" />
+        <link rel="icon" href="/logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
         <meta name="google" content="notranslate" />
       </head>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} font-sans antialiased overflow-x-hidden`}>
         {children}
       </body>
     </html>

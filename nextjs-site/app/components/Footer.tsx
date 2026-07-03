@@ -45,14 +45,14 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-6">
               <Image
-                src="/logo.jpg"
+                src="/logo.png"
                 alt="Logo Kidebouchetou"
                 width={48}
                 height={48}
                 className="w-12 h-12"
               />
               <span className="text-xl font-bold">
-                Ki<span className="text-accent">debouche</span>tou
+                ki<span className="text-accent">debouche</span>tou.com
               </span>
             </div>
             <p className="text-blue-200 mb-6 leading-relaxed">

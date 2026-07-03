@@ -31,7 +31,7 @@ export default function Hero() {
             className="mb-8"
           >
             <Image
-              src="/logo.jpg"
+              src="/logo.png"
               alt="Logo Kidebouchetou - Expert en débouchage de canalisations"
               width={200}
               height={200}
@@ -46,9 +46,9 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 break-words"
           >
-            Ki<span className="text-accent">debouche</span>tou
+            ki<span className="text-accent">debouche</span>tou.com
           </motion.h1>
 
           {/* Subtitle */}
