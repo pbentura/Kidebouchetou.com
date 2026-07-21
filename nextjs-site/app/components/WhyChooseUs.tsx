@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   AlertTriangle,
   CheckCircle,
@@ -116,6 +117,24 @@ export default function WhyChooseUs() {
               <strong>Kidebouchetou</strong> vous propose une intervention rapide et
               efficace, avec des équipements spécialisés :
             </p>
+
+            {/* Camion Image */}
+            <div className="relative rounded-xl overflow-hidden mb-6">
+              <Image
+                src="/media/camion.png"
+                alt="Camion d'intervention Kidebouchetou équipé pour le débouchage"
+                width={600}
+                height={338}
+                className="w-full h-auto object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-green-900/50 via-transparent to-transparent" />
+              <div className="absolute bottom-3 left-3 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1.5">
+                <Truck className="w-4 h-4" />
+                Véhicule équipé
+              </div>
+            </div>
+
             <ul className="space-y-3 mb-6">
               {[
                 { icon: Droplets, text: "Débouchage haute pression jusqu'à 350 bars" },

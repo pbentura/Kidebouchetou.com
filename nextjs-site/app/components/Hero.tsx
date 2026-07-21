@@ -1,7 +1,6 @@
 "use client";
 
-import { Phone, ChevronDown } from "lucide-react";
-import Image from "next/image";
+import { Phone, ChevronDown, Star, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Hero() {
@@ -11,33 +10,37 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center gradient-primary overflow-hidden"
       aria-labelledby="hero-title"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
-        />
+      {/* Video Background */}
+      <div className="hero-video-container">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/media/camion.png"
+          preload="auto"
+        >
+          <source src="/media/camion.mp4" type="video/mp4" />
+        </video>
+        <div className="hero-video-overlay" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 mt-10 md:mt-0">
         <div className="text-center">
-          {/* Logo Image */}
-          <motion.div
-            initial={{ opacity: 0, y: -30 }}
+          
+          {/* Trust Indicator */}
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-8"
+            className="flex items-center justify-center gap-2 mb-8 inline-flex bg-white/10 px-6 py-2 rounded-full border border-white/20 backdrop-blur-sm shadow-xl"
           >
-            <Image
-              src="/logo.png"
-              alt="Logo Kidebouchetou - Expert en débouchage de canalisations"
-              width={200}
-              height={200}
-              className="mx-auto w-32 h-32 md:w-48 md:h-48 drop-shadow-2xl"
-              priority
-            />
+            <div className="flex text-accent">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-5 h-5 fill-current" />
+              ))}
+            </div>
+            <span className="text-white text-sm md:text-base font-medium">4.9/5 Avis Clients • Agréé assurances</span>
           </motion.div>
 
           {/* Main Title */}
@@ -46,9 +49,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 break-words"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg"
           >
-            ki<span className="text-accent">debouche</span>tou.com
+            Urgence Canalisations ?<br />
+            <span className="text-accent">Kidebouchetou.com</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -56,57 +60,38 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl lg:text-3xl text-blue-100 mb-4"
+            className="text-xl md:text-2xl text-blue-100 mb-12 max-w-3xl mx-auto"
           >
-            Votre expert en débouchage depuis 25 ans
+            Votre expert en débouchage en Île-de-France depuis 25 ans. Devis gratuit avant intervention, sans frais cachés.
           </motion.p>
 
-          {/* Value Proposition */}
-          <motion.p
+          {/* 2 CTA Buttons - Exactly TWO Choices */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-lg md:text-xl text-blue-200 mb-8 max-w-2xl mx-auto"
-          >
-            Intervention rapide 24/7 à Sarcelles, Saint-Ouen et toute l&apos;Île-de-France
-          </motion.p>
-
-          {/* Phone CTA */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="mb-8"
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
+            {/* Choix 1 : Appel direct (Priorité absolue) */}
             <a
               href="tel:+33603740704"
-              className="inline-flex items-center gap-3 text-2xl md:text-4xl font-bold text-accent hover:text-accent-light transition-colors phone-animate"
+              className="btn-primary flex items-center justify-center gap-3 text-xl md:text-2xl py-4 px-8 w-full sm:w-auto pulse-cta shadow-2xl hover:-translate-y-1 transition-transform"
               aria-label="Appeler Kidebouchetou au 06 03 74 07 04"
             >
-              <Phone className="w-8 h-8 md:w-10 md:h-10" />
-              06 03 74 07 04
+              <Phone className="w-6 h-6 md:w-8 md:h-8" />
+              <div className="flex flex-col items-start">
+                <span className="font-bold">06 03 74 07 04</span>
+                <span className="text-xs font-normal opacity-90 text-left">Disponible 24h/24 et 7j/7</span>
+              </div>
             </a>
-          </motion.div>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          >
-            <a
-              href="tel:+33603740704"
-              className="btn-primary text-lg pulse-cta"
-            >
-              <Phone className="w-5 h-5" />
-              Appelez maintenant
-            </a>
+            
+            {/* Choix 2 : Devis / Contact */}
             <a
               href="#contact"
-              className="btn-secondary text-lg border-white bg-transparent text-white hover:bg-white hover:text-primary"
+              className="group flex items-center justify-center gap-2 text-xl md:text-2xl py-4 px-8 w-full sm:w-auto border-2 border-white/50 bg-white/5 hover:bg-white text-white hover:text-primary rounded-full font-bold transition-all hover:shadow-xl hover:-translate-y-1"
             >
-              Demandez un devis
+              Demander un devis
+              <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
             </a>
           </motion.div>
 
@@ -114,17 +99,17 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
             className="mt-12 flex flex-wrap justify-center gap-6 text-blue-200 text-sm"
           >
-            <span className="flex items-center gap-1">
-              <span className="text-accent">✓</span> Intervention 30 min
+            <span className="flex items-center gap-2">
+              <span className="text-accent font-bold text-lg">✓</span> Sarcelles
             </span>
-            <span className="flex items-center gap-1">
-              <span className="text-accent">✓</span> Devis gratuit
+            <span className="flex items-center gap-2">
+              <span className="text-accent font-bold text-lg">✓</span> Saint-Ouen
             </span>
-            <span className="flex items-center gap-1">
-              <span className="text-accent">✓</span> Garantie satisfait
+            <span className="flex items-center gap-2">
+              <span className="text-accent font-bold text-lg">✓</span> Toute l&apos;Île-de-France
             </span>
           </motion.div>
         </div>
@@ -135,7 +120,7 @@ export default function Hero() {
         href="#services"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 1.2 }}
+        transition={{ duration: 0.8, delay: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 hover:text-white transition-colors"
         aria-label="Voir nos services"
       >

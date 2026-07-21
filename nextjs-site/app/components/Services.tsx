@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   Droplets,
   Activity,
@@ -19,6 +20,7 @@ const services = [
     description:
       "Nettoyage en profondeur et débouchage haute pression jusqu'à 350 bars pour garantir un réseau d'évacuation optimal.",
     features: ["Haute pression 350 bars", "Furet 100 mètres", "Véhicule 4x4"],
+    image: "/media/camion.png",
   },
   {
     icon: Activity,
@@ -26,6 +28,7 @@ const services = [
     description:
       "Remplacement et installation de colonnes en fonte, PVC et autres matériaux pour assurer un écoulement durable.",
     features: ["Fonte", "PVC", "Multicouche"],
+    image: "/media/remplacement-colonne.jpg",
   },
   {
     icon: Filter,
@@ -33,6 +36,7 @@ const services = [
     description:
       "Utilisation d'équipements spécialisés pour éliminer les bouchons et prévenir les engorgements.",
     features: ["Évier", "Douche/Baignoire", "Lave-vaisselle"],
+    image: "/media/debouchage-evier.png",
   },
   {
     icon: Camera,
@@ -40,6 +44,7 @@ const services = [
     description:
       "Inspection endoscopique de 30 mètres avec enregistrement vidéo, système agréé par les assurances.",
     features: ["Caméra 30m", "Enregistrement HD", "Rapport détaillé"],
+    image: "/media/sanitaire.jpg",
   },
   {
     icon: Home,
@@ -47,6 +52,7 @@ const services = [
     description:
       "Intervention rapide pour déboucher vos WC avec des outils professionnels adaptés à chaque situation.",
     features: ["Déboucheur révolver", "Furet mécanique", "Intervention propre"],
+    image: "/media/robinet.jpg",
   },
   {
     icon: Building2,
@@ -54,6 +60,7 @@ const services = [
     description:
       "Débouchage et nettoyage de regards, gouttières et canalisations extérieures pour immeubles et maisons.",
     features: ["Regards", "Égouts", "Gouttières"],
+    image: "/media/bouche.jpg",
   },
 ];
 
@@ -131,26 +138,43 @@ export default function Services() {
             <motion.div
               key={service.title}
               variants={itemVariants}
-              className="bg-white rounded-2xl p-8 shadow-lg card-hover border border-gray-100"
+              className="service-card bg-white rounded-2xl shadow-lg card-hover border border-gray-100 overflow-hidden"
             >
-              <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center mb-6">
-                <service.icon className="w-7 h-7 text-accent" />
+              {/* Service Image */}
+              <div className="service-card-img relative h-48">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                <div className="absolute bottom-3 left-3">
+                  <div className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-lg flex items-center justify-center shadow-md">
+                    <service.icon className="w-5 h-5 text-accent" />
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-primary mb-4">
-                {service.title}
-              </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                {service.description}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {service.features.map((feature) => (
-                  <span
-                    key={feature}
-                    className="text-xs bg-blue-50 text-primary px-3 py-1 rounded-full font-medium"
-                  >
-                    {feature}
-                  </span>
-                ))}
+
+              {/* Service Content */}
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-primary mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 mb-5 leading-relaxed text-sm">
+                  {service.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {service.features.map((feature) => (
+                    <span
+                      key={feature}
+                      className="text-xs bg-blue-50 text-primary px-3 py-1 rounded-full font-medium"
+                    >
+                      {feature}
+                    </span>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}
@@ -185,3 +209,4 @@ export default function Services() {
     </section>
   );
 }
+

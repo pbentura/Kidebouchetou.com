@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Users, Award, Heart, ThumbsUp, Clock, CheckCircle } from "lucide-react";
+import { Users, Award, Heart, ThumbsUp, Clock, CheckCircle, Play } from "lucide-react";
 
 const values = [
   {
@@ -180,6 +180,34 @@ export default function About() {
                   </li>
                 ))}
               </ul>
+            </div>
+
+            {/* Video Showcase */}
+            <div className="bg-gradient-to-br from-blue-50 to-white p-8 rounded-2xl border border-blue-100">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center">
+                  <Play className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-primary">
+                  Nos Interventions en Action
+                </h3>
+              </div>
+              <p className="text-gray-600 mb-4">
+                Découvrez notre savoir-faire en vidéo : une intervention professionnelle
+                de débouchage filmée sur le terrain.
+              </p>
+              <div className="video-player-container">
+                <video
+                  controls
+                  preload="metadata"
+                  poster="/media/debouchage-evier.png"
+                  playsInline
+                  className="w-full rounded-xl"
+                >
+                  <source src="/media/debouchage.mp4" type="video/mp4" />
+                  Votre navigateur ne supporte pas la lecture vidéo.
+                </video>
+              </div>
             </div>
           </motion.div>
         </div>

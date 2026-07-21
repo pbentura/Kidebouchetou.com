@@ -10,6 +10,7 @@ import {
   ShieldAlert,
   CheckCircle,
 } from "lucide-react";
+import Image from "next/image";
 
 const consequences = [
   {
@@ -85,7 +86,7 @@ export default function Consequences() {
 
         {/* Content Grid */}
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left - Visual */}
+          {/* Left - Visual with real image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -93,20 +94,32 @@ export default function Consequences() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="bg-gradient-to-br from-red-100 to-amber-50 rounded-2xl p-8 aspect-video flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-32 h-32 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse">
-                  <AlertCircle className="w-16 h-16 text-white" />
+            <div className="rounded-2xl overflow-hidden aspect-video relative shadow-2xl">
+              <Image
+                src="/media/pb-bouchage.png"
+                alt="Siphon bouché - illustration d'une canalisation obstruée"
+                fill
+                className="object-cover ken-burns-effect"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-red-900/60 via-red-900/20 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center animate-pulse">
+                    <AlertCircle className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-white">
+                      N&apos;attendez pas !
+                    </h3>
+                    <p className="text-red-100 text-sm">
+                      Plus vous attendez, plus les dégâts peuvent être importants.
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold text-red-600 mb-2">
-                  N&apos;attendez pas !
-                </h3>
-                <p className="text-gray-600">
-                  Plus vous attendez, plus les dégâts peuvent être importants.
-                </p>
               </div>
             </div>
-            {/* Floating cards */}
+            {/* Floating card */}
             <div className="absolute -bottom-6 right-0 md:-right-6 bg-white p-4 rounded-xl shadow-lg">
               <div className="flex items-center gap-2 text-red-600">
                 <ShieldAlert className="w-5 h-5" />
