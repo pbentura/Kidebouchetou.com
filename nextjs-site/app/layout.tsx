@@ -1,8 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+// Police auto-hébergée (pas d'appel à Google Fonts : RGPD + performance)
+const inter = localFont({
+  src: "./fonts/inter-latin-wght-normal.woff2",
+  variable: "--font-inter",
+  display: "swap",
+  weight: "100 900",
+});
+
+import { SITE_URL } from "./lib/site";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -11,13 +19,13 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kidebouchetou.fr"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "kidebouchetou.com | Expert Débouchage Canalisations Île-de-France",
-    template: "%s | kidebouchetou.com",
+    default: "Débouchage Canalisation Sarcelles, 95 & 93 – 24h/24 | Kidebouchetou",
+    template: "%s | Kidebouchetou",
   },
   description:
-    "Expert en débouchage de canalisations depuis 25 ans. Intervention rapide 24/7 à Sarcelles, Saint-Ouen et toute l'Île-de-France. Débouchage WC, évier, douche, canalisation haute pression. Devis gratuit.",
+    "Plombier spécialiste du débouchage de canalisations, plus de 25 ans d'expérience. Intervention 24h/24 à Sarcelles, dans le Val-d'Oise, la Seine-Saint-Denis et toute l'Île-de-France. WC, évier, douche, haute pression. Devis gratuit : 06 03 74 07 04.",
   keywords: [
     "débouchage canalisation",
     "débouchage WC",
@@ -28,7 +36,11 @@ export const metadata: Metadata = {
     "débouchage urgence",
     "plombier débouchage",
     "Sarcelles",
-    "Saint-Ouen",
+    "Saint-Denis",
+    "Argenteuil",
+    "Montreuil",
+    "Clichy",
+    "Val-d'Oise",
     "Île-de-France",
     "débouchage haute pression",
     "inspection caméra canalisation",
@@ -47,17 +59,14 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    url: "https://kidebouchetou.fr",
-    siteName: "kidebouchetou.com",
-    title: "kidebouchetou.com | Expert Débouchage Canalisations depuis 25 ans",
+    url: SITE_URL,
+    siteName: "Kidebouchetou",
+    title: "Débouchage Canalisation 24h/24 – Sarcelles & Île-de-France | Kidebouchetou",
     description:
-      "Service professionnel de débouchage de canalisations. Intervention rapide 24/7, devis gratuit.",
+      "Plombier débouchage, plus de 25 ans d'expérience. Intervention rapide 24h/24, devis gratuit. 06 03 74 07 04.",
     images: [
       {
         url: "/logo.png",
@@ -69,58 +78,61 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "kidebouchetou.com | Expert Débouchage Canalisations",
+    title: "Débouchage Canalisation 24h/24 | Kidebouchetou",
     description:
-      "Service professionnel de débouchage depuis 25 ans. Intervention rapide à Sarcelles et Saint-Ouen.",
+      "Plombier débouchage à Sarcelles et en Île-de-France. Intervention rapide 24h/24, devis gratuit.",
     images: ["/logo.png"],
-  },
-  verification: {
-    google: "your-google-verification-code",
   },
   category: "services",
 };
 
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "Plumber",
+  "@id": `${SITE_URL}/#organisation`,
   name: "Kidebouchetou",
-  image: "https://kidebouchetou.fr/logo.png",
-  "@id": "https://kidebouchetou.fr",
-  url: "https://kidebouchetou.fr",
+  legalName: "VENTURA ETS",
+  image: `${SITE_URL}/logo.png`,
+  logo: `${SITE_URL}/logo.png`,
+  url: SITE_URL,
   telephone: "+33603740704",
-  email: "isacbentura@gmail.com",
+  email: "contact.kidebouchetou@gmail.com",
   priceRange: "€€",
-  address: [
-    {
-      "@type": "PostalAddress",
-      streetAddress: "20 Allée Léon Paul Fargue",
-      addressLocality: "Sarcelles",
-      postalCode: "95200",
-      addressCountry: "FR",
-    },
-    {
-      "@type": "PostalAddress",
-      streetAddress: "100 Avenue Michelet",
-      addressLocality: "Saint-Ouen",
-      postalCode: "94200",
-      addressCountry: "FR",
-    },
-  ],
+  foundingDate: "2022-12",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "20 Allée Léon Paul Fargue",
+    addressLocality: "Sarcelles",
+    postalCode: "95200",
+    addressRegion: "Île-de-France",
+    addressCountry: "FR",
+  },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 48.9767,
-    longitude: 2.3833,
+    latitude: 48.9972,
+    longitude: 2.3853,
   },
-  areaServed: {
-    "@type": "Place",
-    name: "Île-de-France",
-  },
+  areaServed: [
+    "Sarcelles",
+    "Garges-lès-Gonesse",
+    "Villiers-le-Bel",
+    "Argenteuil",
+    "Saint-Denis",
+    "Saint-Ouen-sur-Seine",
+    "Aubervilliers",
+    "Montreuil",
+    "Clichy",
+    "Val-d'Oise",
+    "Seine-Saint-Denis",
+    "Hauts-de-Seine",
+    "Paris",
+  ].map((name) => ({ "@type": "Place", name })),
   serviceType: [
     "Débouchage de canalisations",
-    "Curage de canalisations",
+    "Curage et hydrocurage",
     "Inspection caméra",
     "Remplacement de colonnes",
-    "Vidange",
+    "Dépannage plomberie",
   ],
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
@@ -129,8 +141,7 @@ const structuredData = {
     closes: "23:59",
   },
   description:
-    "Expert en débouchage de canalisations depuis plus de 25 ans. Intervention rapide 24/7 avec matériel professionnel haute pression.",
-  foundingDate: "1997",
+    "Plombier spécialiste du débouchage de canalisations, plus de 25 ans d'expérience. Intervention 24h/24 et 7j/7 avec matériel professionnel haute pression à Sarcelles et en Île-de-France.",
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Services de débouchage",

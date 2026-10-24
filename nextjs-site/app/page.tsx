@@ -8,6 +8,11 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Navigation from "./components/Navigation";
 import EmergencyBanner from "./components/EmergencyBanner";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (

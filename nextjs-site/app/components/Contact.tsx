@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Phone, Mail, Clock, Send, CheckCircle } from "lucide-react";
+import { Phone, Mail, Clock, Send, CheckCircle, MessageCircle } from "lucide-react";
 import { useState } from "react";
+import { EMAIL, PHONE_WA } from "../lib/site";
 
 export default function Contact() {
   const [formState, setFormState] = useState({
@@ -11,22 +12,31 @@ export default function Contact() {
     phone: "",
     message: "",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  // Le site est 100 % statique (pas de serveur) : le formulaire ouvre
+  // votre messagerie ou WhatsApp avec le message pré-rempli.
+  const buildMessage = () =>
+    `Bonjour,
+
+${formState.message}
+
+Nom : ${formState.name}
+Téléphone : ${formState.phone}${
+      formState.email ? `
+E-mail : ${formState.email}` : ""
+    }`;
+
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    setIsSubmitting(false);
+    const subject = encodeURIComponent(`Demande de débouchage – ${formState.name}`);
+    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${encodeURIComponent(buildMessage())}`;
     setIsSubmitted(true);
-    setFormState({ name: "", email: "", phone: "", message: "" });
+    setTimeout(() => setIsSubmitted(false), 8000);
+  };
 
-    // Reset success message after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000);
+  const handleWhatsApp = () => {
+    window.open(`https://wa.me/${PHONE_WA}?text=${encodeURIComponent(buildMessage())}`, "_blank", "noopener,noreferrer");
   };
 
   const contactInfo = [
@@ -40,8 +50,8 @@ export default function Contact() {
     {
       icon: Mail,
       label: "Email",
-      value: "isacbentura@gmail.com",
-      href: "mailto:isacbentura@gmail.com",
+      value: "contact.kidebouchetou@gmail.com",
+      href: "mailto:contact.kidebouchetou@gmail.com",
       description: "Réponse sous 24h",
     },
     {
@@ -166,10 +176,11 @@ export default function Contact() {
                 <div className="p-6 bg-green-50 rounded-xl text-center">
                   <CheckCircle className="w-12 h-12 text-green-500 mx-auto mb-4" />
                   <h4 className="text-lg font-bold text-green-800 mb-2">
-                    Message envoyé !
+                    Votre messagerie s&apos;ouvre
                   </h4>
                   <p className="text-green-600">
-                    Nous vous recontacterons dans les plus brefs délais.
+                    Il ne reste qu&apos;à cliquer sur « Envoyer ». Si rien ne s&apos;est ouvert,
+                    écrivez-nous à {EMAIL} ou appelez-nous.
                   </p>
                 </div>
               ) : (
@@ -253,27 +264,22 @@ export default function Contact() {
                     />
                   </div>
 
+                  <button type="submit" className="btn-primary w-full justify-center">
+                    <Send className="w-5 h-5" />
+                    Envoyer par e-mail
+                  </button>
                   <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="btn-primary w-full justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                    type="button"
+                    onClick={handleWhatsApp}
+                    className="w-full justify-center inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-4 rounded-full transition-colors"
                   >
-                    {isSubmitting ? (
-                      <span className="flex items-center gap-2">
-                        <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        Envoi en cours...
-                      </span>
-                    ) : (
-                      <>
-                        <Send className="w-5 h-5" />
-                        Envoyer le message
-                      </>
-                    )}
+                    <MessageCircle className="w-5 h-5" />
+                    Envoyer par WhatsApp
                   </button>
 
                   <p className="text-xs text-gray-500 text-center">
-                    * Champs obligatoires. Nous ne partagerons jamais vos
-                    informations.
+                    * Champs obligatoires. Le bouton ouvre votre messagerie ou WhatsApp avec le
+                    message pré-rempli ; pour une urgence, appelez directement.
                   </p>
                 </div>
               )}

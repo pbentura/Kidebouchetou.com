@@ -3,6 +3,7 @@ import { Phone, MapPin, ArrowLeft, Clock, CheckCircle } from "lucide-react";
 import Link from "next/link";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/intervention/94/" },
   title: "Débouchage Val-de-Marne 94 | Intervention Rapide",
   description:
     "Service de débouchage professionnel dans le Val-de-Marne (94). Intervention rapide à Créteil, Vitry, Champigny. WC bouché, canalisation. Devis gratuit.",

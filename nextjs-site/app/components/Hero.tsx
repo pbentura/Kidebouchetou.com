@@ -62,7 +62,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-blue-100 mb-12 max-w-3xl mx-auto"
           >
-            Votre expert en débouchage en Île-de-France depuis 25 ans. Devis gratuit avant intervention, sans frais cachés.
+            Plombier spécialiste du débouchage, plus de 25 ans d&apos;expérience. Intervention 24h/24 à Sarcelles et en Île-de-France, devis gratuit avant intervention, sans frais cachés.
           </motion.p>
 
           {/* 2 CTA Buttons - Exactly TWO Choices */}
@@ -106,7 +106,7 @@ export default function Hero() {
               <span className="text-accent font-bold text-lg">✓</span> Sarcelles
             </span>
             <span className="flex items-center gap-2">
-              <span className="text-accent font-bold text-lg">✓</span> Saint-Ouen
+              <span className="text-accent font-bold text-lg">✓</span> Val-d&apos;Oise &amp; Seine-Saint-Denis
             </span>
             <span className="flex items-center gap-2">
               <span className="text-accent font-bold text-lg">✓</span> Toute l&apos;Île-de-France

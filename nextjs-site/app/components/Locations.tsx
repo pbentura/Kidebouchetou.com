@@ -3,23 +3,16 @@
 import { motion } from "framer-motion";
 import { MapPin, Navigation, Clock, Phone, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { cities } from "../data/cities";
+import { ADDRESS, PHONE_DISPLAY, PHONE_TEL } from "../lib/site";
 
 const locations = [
   {
-    city: "Sarcelles",
-    address: "20 Allée Léon Paul Fargue",
-    postalCode: "95200",
-    mapUrl:
-      "https://www.google.com/maps/search/?api=1&query=20+Allée+Léon+Paul+Fargue,+95200+Sarcelles",
-    areas: ["Sarcelles", "Garges-lès-Gonesse", "Villiers-le-Bel", "Arnouville"],
-  },
-  {
-    city: "Saint-Ouen",
-    address: "100 Avenue Michelet",
-    postalCode: "94200",
-    mapUrl:
-      "https://www.google.com/maps/search/?api=1&query=100+Avenue+Michelet,+94200+Saint-Ouen",
-    areas: ["Saint-Ouen", "Saint-Denis", "L'Île-Saint-Denis", "Aubervilliers"],
+    city: ADDRESS.city,
+    address: ADDRESS.street,
+    postalCode: ADDRESS.postalCode,
+    mapUrl: ADDRESS.mapUrl,
+    areas: ["Sarcelles", "Garges-lès-Gonesse", "Villiers-le-Bel", "Arnouville", "Gonesse", "Saint-Denis", "Argenteuil"],
   },
 ];
 
@@ -85,13 +78,14 @@ export default function Locations() {
             transition={{ delay: 0.2 }}
             className="text-gray-600 text-lg max-w-2xl mx-auto"
           >
-            Basés à Sarcelles et Saint-Ouen, nous intervenons dans toute
-            l&apos;Île-de-France pour vos urgences débouchage.
+            Basés à Sarcelles, nous intervenons à domicile dans le Val-d&apos;Oise, la
+            Seine-Saint-Denis, les Hauts-de-Seine et toute l&apos;Île-de-France.
           </motion.p>
         </div>
 
         {/* Locations Grid */}
         <div className="grid md:grid-cols-2 gap-8 mb-12">
+          {/* Carte de la base */}
           {locations.map((location, index) => (
             <motion.div
               key={location.city}
@@ -135,10 +129,10 @@ export default function Locations() {
                   <div>
                     <p className="font-medium text-primary">Téléphone</p>
                     <a
-                      href="tel:+33603740704"
+                      href={`tel:${PHONE_TEL}`}
                       className="text-accent font-semibold hover:underline"
                     >
-                      06 03 74 07 04
+                      {PHONE_DISPLAY}
                     </a>
                   </div>
                 </div>
@@ -171,6 +165,36 @@ export default function Locations() {
               </a>
             </motion.div>
           ))}
+
+          {/* Villes : pages dédiées */}
+          <motion.div
+            id="villes"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="bg-gradient-to-br from-orange-50 to-white p-8 rounded-2xl border border-orange-100"
+          >
+            <h3 className="text-2xl font-bold text-primary mb-2">Débouchage ville par ville</h3>
+            <p className="text-gray-600 mb-6">
+              Délais, quartiers desservis et tarifs pour chaque commune où nous intervenons le plus.
+            </p>
+            <ul className="grid grid-cols-2 gap-3">
+              {cities.map((c) => (
+                <li key={c.slug}>
+                  <Link
+                    href={`/debouchage-${c.slug}/`}
+                    className="flex items-center gap-2 bg-white border border-gray-200 rounded-xl px-3 py-2.5 text-sm font-medium text-primary hover:border-accent hover:text-accent transition-colors"
+                  >
+                    <MapPin className="w-4 h-4 text-accent flex-shrink-0" />
+                    <span>
+                      {c.name} <span className="text-gray-400 font-normal">({c.dept})</span>
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
         </div>
 
         {/* Departments Grid */}
@@ -225,7 +249,7 @@ export default function Locations() {
           </h3>
           <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
             Notre équipe mobile intervient rapidement dans un rayon de 50km autour
-            de nos bases à Sarcelles et Saint-Ouen. Contactez-nous pour connaître
+            de notre base de Sarcelles. Contactez-nous pour connaître
             les délais d&apos;intervention dans votre commune.
           </p>
           <div className="flex flex-wrap justify-center gap-4">

@@ -49,8 +49,8 @@ export default function WhyChooseUs() {
             transition={{ delay: 0.2 }}
             className="text-gray-600 text-lg max-w-2xl mx-auto"
           >
-            Découvrez pourquoi nos clients nous font confiance depuis plus de 25 ans
-            pour leurs problèmes de canalisations.
+            Découvrez pourquoi nos clients nous font confiance pour leurs problèmes
+            de canalisations : plus de 25 ans d&apos;expérience à votre service.
           </motion.p>
         </div>
 
@@ -194,7 +194,7 @@ export default function WhyChooseUs() {
                   {
                     critere: "Délai d'intervention",
                     general: "⏰ Horaires limités",
-                    kidebouche: "⚡ 24/7 - 30 min",
+                    kidebouche: "⚡ 24/7 - 30 à 45 min",
                   },
                   {
                     critere: "Équipement",
@@ -248,7 +248,7 @@ export default function WhyChooseUs() {
               {
                 icon: Timer,
                 title: "Rapide",
-                desc: "Intervention en 30 minutes",
+                desc: "Intervention en 30 à 45 minutes",
               },
               {
                 icon: Users,

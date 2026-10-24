@@ -3,6 +3,7 @@ import { Phone, MapPin, ArrowLeft, Clock, CheckCircle } from "lucide-react";
 import Link from "next/link";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/intervention/93/" },
   title: "Débouchage Seine-Saint-Denis 93 | Intervention Rapide",
   description:
     "Service de débouchage professionnel en Seine-Saint-Denis (93). Intervention rapide à Saint-Denis, Aubervilliers, Bobigny. WC bouché, canalisation. Devis gratuit.",
@@ -92,7 +93,7 @@ export default function SeineSaintDenisPage() {
                 Aubervilliers et Bobigny, notre équipe d&apos;experts est disponible 24h/24.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Basés à Saint-Ouen, nous connaissons parfaitement la Seine-Saint-Denis
+                Basés à Sarcelles, aux portes de la Seine-Saint-Denis, nous connaissons parfaitement le département
                 et garantissons une intervention rapide avec notre matériel professionnel
                 haute pression.
               </p>

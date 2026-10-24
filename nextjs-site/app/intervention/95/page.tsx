@@ -3,6 +3,7 @@ import { Phone, MapPin, ArrowLeft, Clock, CheckCircle } from "lucide-react";
 import Link from "next/link";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/intervention/95/" },
   title: "Débouchage Val-d'Oise 95 | Intervention Rapide",
   description:
     "Service de débouchage professionnel dans le Val-d'Oise (95). Intervention rapide à Sarcelles, Cergy, Argenteuil. WC bouché, canalisation. Devis gratuit.",
@@ -176,7 +177,7 @@ export default function ValDOisePage() {
             <div className="bg-primary rounded-2xl p-6 text-white">
               <h3 className="font-bold mb-2">kidebouchetou.com</h3>
               <p className="text-blue-200 text-sm">
-                Basé à Sarcelles depuis plus de 25 ans.
+                Basé à Sarcelles, plus de 25 ans d&apos;expérience.
               </p>
             </div>
           </div>

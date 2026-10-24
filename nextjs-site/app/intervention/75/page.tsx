@@ -3,6 +3,7 @@ import { Phone, MapPin, ArrowLeft, Clock, CheckCircle } from "lucide-react";
 import Link from "next/link";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/intervention/75/" },
   title: "Débouchage Paris 75 | Intervention Rapide 24/7",
   description:
     "Service de débouchage professionnel à Paris (75). Intervention rapide dans tous les arrondissements. WC bouché, évier, canalisation. Devis gratuit.",

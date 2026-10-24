@@ -16,10 +16,12 @@ const footerLinks = [
   {
     title: "Zones",
     links: [
-      { label: "Sarcelles", href: "#localisation" },
-      { label: "Saint-Ouen", href: "#localisation" },
-      { label: "Paris", href: "#localisation" },
-      { label: "Île-de-France", href: "#localisation" },
+      { label: "Sarcelles", href: "/debouchage-sarcelles/" },
+      { label: "Saint-Denis", href: "/debouchage-saint-denis/" },
+      { label: "Argenteuil", href: "/debouchage-argenteuil/" },
+      { label: "Montreuil", href: "/debouchage-montreuil/" },
+      { label: "Clichy", href: "/debouchage-clichy/" },
+      { label: "Toutes les villes", href: "/#villes" },
     ],
   },
   {
@@ -56,8 +58,9 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-blue-200 mb-6 leading-relaxed">
-              Votre expert en débouchage de canalisations depuis 1997. Intervention
-              rapide 24/7 à Sarcelles, Saint-Ouen et toute l&apos;Île-de-France.
+              Plombier spécialiste du débouchage de canalisations, plus de 25 ans
+              d&apos;expérience. Intervention rapide 24h/24 à Sarcelles, dans le Val-d&apos;Oise,
+              la Seine-Saint-Denis et toute l&apos;Île-de-France.
             </p>
             <div className="space-y-3">
               <a
@@ -68,11 +71,11 @@ export default function Footer() {
                 06 03 74 07 04
               </a>
               <a
-                href="mailto:isacbentura@gmail.com"
+                href="mailto:contact.kidebouchetou@gmail.com"
                 className="flex items-center gap-2 text-blue-200 hover:text-white transition-colors"
               >
                 <Mail className="w-5 h-5" />
-                isacbentura@gmail.com
+                contact.kidebouchetou@gmail.com
               </a>
             </div>
           </div>
@@ -106,15 +109,6 @@ export default function Footer() {
                 <p className="font-semibold">Sarcelles</p>
                 <p className="text-blue-200 text-sm">
                   20 Allée Léon Paul Fargue, 95200 Sarcelles
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <MapPin className="w-5 h-5 text-accent mt-0.5" />
-              <div>
-                <p className="font-semibold">Saint-Ouen</p>
-                <p className="text-blue-200 text-sm">
-                  100 Avenue Michelet, 94200 Saint-Ouen
                 </p>
               </div>
             </div>

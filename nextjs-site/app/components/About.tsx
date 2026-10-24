@@ -7,7 +7,7 @@ const values = [
   {
     icon: Clock,
     title: "Réactivité",
-    description: "Intervention en 30 minutes pour les urgences",
+    description: "Intervention en 30 à 45 minutes pour les urgences",
   },
   {
     icon: CheckCircle,
@@ -81,8 +81,8 @@ export default function About() {
                 </h3>
               </div>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Depuis plus de <strong className="text-accent">25 ans</strong>,{" "}
-                <strong className="text-primary">Kidebouchetou</strong> est votre
+                Fort de plus de <strong className="text-accent">25 ans d&apos;expérience</strong> en
+                plomberie, <strong className="text-primary">Kidebouchetou</strong> est votre
                 partenaire de confiance pour tous vos besoins en débouchage de
                 canalisations et entretien d&apos;équipements sanitaires dans la région
                 parisienne.
